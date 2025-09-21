@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=240, initial-scale=1.0, 
+user-scalable=no">
+    <title>R1 Creations Test App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Ensure the app div fills the visible area for the color effect 
+*/
+        #app {
+            min-height: 100vh;
+            min-width: 100vw;
+            background: #206be5; /* Default blue */
+            transition: background 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>R1 Test</h1>
+            <button id="menuBtn" class="menu-button" 
+aria-label="Menu">☰</button>
+        </header>
+
+        <nav id="menuNav" class="menu-nav">
+            <button class="close-menu" id="closeMenu">×</button>
+            <ul>
+                <li><a href="#" data-page="hardware">Hardware</a></li>
+                <!-- Add more menu options if desired -->
+            </ul>
+        </nav>
+
+        <!-- Main screen content could go here -->
+    </div>
+    <script>
+        // Target the app area to change background color
+        const appDiv = document.getElementById('app');
+
+        function setBlue() { appDiv.style.background = '#206be5'; }
+        function setPurple() { appDiv.style.background = '#8e44ad'; }
+
+        // Set default color on load
+        setBlue();
+
+        // Use spacebar as a stand-in for PTT for web browser testing
+        document.addEventListener('keydown', (e) => {
+            if (e.code === "Space") setPurple();
+        });
+        document.addEventListener('keyup', (e) => {
+            if (e.code === "Space") setBlue();
+        });
+
+        // TODO for Rabbit R1: replace the above events with PTT button 
+events
+        // Example pseudo-code:
+        // rabbit.on('ptt-press', setPurple);
+        // rabbit.on('ptt-release', setBlue);
+    </script>
+    <!-- The rest of your navigation/menu scripts if needed -->
+</body>
+</html>
+
